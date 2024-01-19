@@ -6,23 +6,68 @@
     <meta name="viewport" content="widt=divice-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<script>
+  var bassadan=[];
+class bassa
+{
+  constructor(name,password)
+  {
+    this.obj={name,password}
+  }
+  set(name, password)
+  {
+    this.obj.name=name;
+    this.obj.password=password;
+    bassadan.push(this.obj);
+  }
+  get()
+  {
+    return this.obj
+  }
+}
+var xy=new bassa();
+  </script>
     <script>
         function show1()
-            {
-                alert("Поиграем");
+            { var x1 =document.getElementById('Name1');
+              var y1 =document.getElementById('password1');
+                for (let x in bassadan)
+                {
+                  if (bassadan[x].name===x1.value && bassadan[x].password===y1.value)
+                  {
+                    alert("Ну типо моледец вошол");
+                    break;
+                  }
+                  else{
+                    alert("Иди нахуй сука"+ x);
+                    break;
+                  }
+                }
             }
     </script>
-    <body onload="show1()">
+    <body>
         <script>
             function show()
                 {
-                    alert("Пошол нахуй Сука");
+                  var x =document.getElementById('Name');
+                  var y =document.getElementById('password');
+                    xy.set(x.value,y.value);
+                    alert("Пошол нахуй "+xy.get().name)
                 }
         </script>
         <p>привет</p>
         <div>
-        <input placeholder="Введи Имя" type="text">
-        <button onclick="show();">Отправить Имя</button>
-        </div>
+        <input placeholder="Введи Имя" type="text" id="Name">
+      <input type="password" placeholder="Введите Пароль" id="password"><br>
+          <button onclick="show();">Отправить Данные</button>
+    </div><br><br>
+    <div>
+      <form>
+        <input type="text" placeholder="Ну вводи своё Имя" id="Name1">
+        <input type="password" placeholder="А пароль" id="password1"><br>
+        <button onclick="show1()">Ну давай давай наподай</button>
+      </form>>
+    </div>
     </body>
 </html>
+
